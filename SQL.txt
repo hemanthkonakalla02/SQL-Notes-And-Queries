@@ -1,0 +1,130 @@
+1]Explain indetail about SQL ?
+
+    ->SQL stands for structured query langauge
+    ->SQL is used to connect and interact with the relational databases like MySQL and Oracle
+    ->SQL is used to create,read,update,delete data stored in tables
+    ->In tables the data will be stored in the form of rows and columns
+    ->The column is a place where we store similar data of one particular datatype
+    ->Technically we call column as attribute or field
+    ->One row can store all the details of one particular person
+    ->Row can also be called as a record
+    ->Technically we call row as an instance
+
+
+2]What is a database ?
+
+    ->A database is a structured collection of data that is stored and accessed electronically,it allows the data to be efficiently stored,managed,updated and retrived
+
+
+3]What is DBMS ?
+
+    ->DBMS stands for database management system
+    ->DBMS is a software that stores and retieve data from the database
+
+
+4]What is RDBMS ?
+
+    ->RDBMS stands for relational database management system
+    ->RDBMS stores data in tabular format and maintain relationship between tables using keys
+
+
+5]Difference between DBMS and RDBMS ?
+
+    1]DBMS stands for database management system
+    2]DBMS manages data in a files
+    3]In DBMS thier is no relation between data
+    4]DBMS does not support normalization
+    5]DBMS does not support distributed database
+    6]DBMS provides less security features
+
+
+    for an example:FileSystem
+
+
+    1]RDBMS stands for relational database management system
+    2]RDBMS stores data in tabular format
+    3]RDBMS stores data in tabular format which are related to each other
+    4]RDBMS supports distributed database
+    5]RDBMS supports normalization
+    6]RDBMS provides more security features
+
+    for an example:MySQL and Oracle
+
+
+6]What is a schema ?
+
+    ->Schema is a logical structure of a database that defines tables,columns,contraints and relationships
+
+
+7]What is a table ?
+
+    ->A table is a database object that stores data in tabular format using rows and columns
+    ->Each row represent one record
+    ->Each column represent one attibute of that record.
+
+
+
+8]What is a query ?
+
+    ->A query is  a request to access and manipulate data present inside the table.
+
+
+9]Explain indetail about SQL commands ?
+
+    ->SQL commands is used to interact with the database
+    ->In SQL thier are 5 different types of commands:-
+        
+        1]DDL[Data Defination Langauge]
+            
+            ->create : is used to create a database,table or any other database objects like stored procedures or functions
+
+            ->alter : is used to modify the structure of a database table
+
+            ->drop : is used to drop the tables from a database,using drop we can also drop the database as well
+
+            ->rename : is used to change the name of a table
+
+            ->truncate : is used to remove all the records from the table at the same time in a single step,after truncate thier will be a empty table structure
+
+        DDL mainly deals with the structure
+
+
+        2]DML[Data Manipulation Langauge]
+            
+            ->insert  : is used to insert the record in a table
+                In insert thier are 2 types:-
+                    i)implicit inserting
+                    ii)explicit inserting
+
+                        ->If insert data for all the columns in a table then it is called as implicit inserting
+                        ->If insert data for specified columns in a table then it is called as explicit inserting
+
+            ->update : is used to update the record in a table
+                while using update if i dont use where cluase for the condition then it will update the entire column in a table
+
+            ->delete : is used to delete the record in a table
+                while using delete if i dont use where clause for the condition then it will delete the entire records from the table.
+
+
+        DML mainly deals with the data
+
+
+
+
+        3]DQL[Data Query Langauge]
+
+            ->select : is used to read the records from a table
+            while using select if i dont use where clause for the condition then it will read all the records from the table
+
+
+        4]TCL[Transaction Control Langauge] (we need to turn off the auto-commit for TCL)
+
+            ->commit : is used to save the current Transaction
+            ->rollback : is used to undo the changes made in Transaction
+            ->savepoint 
+
+
+        5]DCL[Data Control Langauge]
+
+            ->grant: is used to give the privilages to the user
+            ->revoke : is used to revoke the privilages from a user
