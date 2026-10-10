@@ -9,7 +9,7 @@
     ->One row can store all the details of one particular person
     ->Row can also be called as a record
     ->Technically we call row as an instance
-
+ 
 
 2]What is a database ?
 
