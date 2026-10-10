@@ -84,7 +84,7 @@ truncate table emp;
     select * from emp where dept='softwaredevelopment';
     
     
-    -- TCL [Transaction control language]
+ -- TCL [Transaction control language]
     
     set autocommit=0;
     
@@ -106,7 +106,7 @@ truncate table emp;
 	rollback to savepoint sp1;
     
     
-    -- DCL [Data Control Language]
+-- DCL [Data Control Language]
      
      create user 'hemanth' identified by 'test';
 	 drop user 'hemanth';
