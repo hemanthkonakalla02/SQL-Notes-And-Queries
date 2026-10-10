@@ -19,7 +19,7 @@
 3]What is DBMS ?
 
     ->DBMS stands for database management system
-    ->DBMS is a software that stores and retieve data from the database
+    ->DBMS is a software that stores and retrieve data from the database
 
 
 4]What is RDBMS ?
