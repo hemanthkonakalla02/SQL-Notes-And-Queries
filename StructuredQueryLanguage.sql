@@ -1,7 +1,7 @@
 -- DDL[Data Defination Language]
 
 -- CREATE
-create database if not exists sqlcomplete;
+create database if not exists sqlcomplete; 
 
 use sqlcomplete;
 
