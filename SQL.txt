@@ -128,3 +128,34 @@
 
             ->grant: is used to give the privilages to the user
             ->revoke : is used to revoke the privilages from a user
+
+
+
+10]Explain indetail about SQL Constraints ?
+
+    ->SQL constraint is a rule that is applied to a column in a table to enforce data integrity 
+    ->In SQL thier are different types of constraints like:-
+        
+        i)NotNull
+            ->If i specify a column with notnull constraint then it will not accept the null values
+
+        ii)Unique
+            ->If i specify a column with unique constraint then it will accept only unique values,it will not accept the duplicate values
+        
+        iii)check
+            ->check constraint ensures that the column mets the specific condition,if the condition is not met then insertion/updation fails
+
+        iv)default 
+            ->default is used to set the default value for a column,if no value is specified during insert.
+
+        v)primary key
+            ->primary is a combination of both unique and not null
+            ->In a table we can have only one primary key
+            ->If i use primary key on more than one column in a table then it is called as composite primary key.
+
+        vi)foreign key
+            ->foreign key enforces referential integrity between parent and child tables
+
+11]What is auto increment ?
+
+    ->AutoIncrement is used to generate the sequence of values automatically.

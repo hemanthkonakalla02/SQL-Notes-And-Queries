@@ -32,10 +32,6 @@ insert into emp values(2,'anandkumarkonakalla',105000,'Analyst');
 truncate table emp;
 
 
-
-
-
-
 -- DML[Data Manipulation Language]
 
 -- INSERT
@@ -63,9 +59,7 @@ truncate table emp;
 
 	update emp set dept='Architect' where eid=5;
     
-    
-
--- DELETE
+ -- DELETE
 
 	-- delete without where clause
     delete from emp;
@@ -74,7 +68,7 @@ truncate table emp;
     delete from emp where eid=6;
     
     
-    -- DQL[Data Query language]
+-- DQL[Data Query language]
     
     -- select without where cluase
     select * from emp;
@@ -112,10 +106,100 @@ truncate table emp;
 	 drop user 'hemanth';
      
         -- grant
-        
         grant select,insert,update on sqlcomplete.emp to  'hemanth';
        
+       -- revoke
         revoke update on sqlcomplete.emp from 'hemanth';
         
         revoke all on sqlcomplete.emp from 'hemanth';
         
+
+
+-- SQL Constraints 
+
+use sqlcomplete;
+create table dept(dept_id int primary key,dept_name varchar(45) not null);
+
+
+insert into dept values(101,'CloudEngineering');
+insert into dept values(102,'Architecture');
+insert into dept values(103,'CSE');
+insert into dept values(104,'ECE');
+insert into dept values(105,'EEE');
+insert into dept values(106,'Mechanical');
+insert into dept values(107,'MBA');
+
+-- Defining SQL Constraints during table creation
+
+create table employ(eid int primary key,ename varchar(45) not null,email varchar(45) unique,age tinyint check(age>=18),address varchar(45) default 'Kgm',dept_id int, foreign key( dept_id) references dept(dept_id));
+
+select * from employ;
+
+insert into employ(eid,ename,email,age,dept_id) values(7,'nani','nani@gmail.com',25,107);
+
+
+
+-- Defining SQL Constraints after table creation
+
+create table employ(eid int,ename varchar(45),email varchar(45),age tinyint,address varchar(45),dept_id int);
+
+select * from employ;
+
+-- adding primary key constraint to eid
+
+alter table employ add constraint pk primary key(eid);
+
+-- adding not null constraint to ename
+
+alter table employ modify ename varchar(45) not null;
+
+-- adding unique constraint to email
+
+alter table employ add constraint uq unique(email);
+
+-- adding check constraint for age
+
+alter table employ add constraint chk check(age>=18);
+
+
+-- adding the default constraint to address
+
+alter table employ modify address varchar(45) default 'KGM';
+
+-- adding foreign key constraint to employ table
+
+alter table employ add constraint fk foreign key(dept_id) references dept(dept_id);
+
+
+select * from employ;
+
+insert into employ(eid,ename,email,age,dept_id) values(7,'nani','nani@gmail.com',29,107);
+
+
+-- Removing SQL Constraints from table
+
+-- Removing primary key for eid
+
+alter table employ drop primary key;
+
+-- Removing not null for ename
+
+alter table employ modify ename varchar(55);
+
+
+-- Removing unique constraint for email
+
+alter table employ drop constraint uq;
+
+-- Removing check constraint for age
+
+alter table employ modify age tinyint;
+
+
+-- Removing the default constraint for address
+
+alter table employ modify address varchar(55);
+
+-- Removing the foreign key for employ table
+
+alter table employ drop constraint fk;
