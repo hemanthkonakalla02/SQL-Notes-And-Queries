@@ -84,7 +84,7 @@ truncate table emp;
     select * from emp where dept='softwaredevelopment';
     
     
- -- TCL [Transaction control language]
+-- TCL [Transaction control language]
     
     set autocommit=0;
     
