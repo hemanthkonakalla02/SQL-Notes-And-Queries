@@ -159,3 +159,111 @@
 11]What is auto increment ?
 
     ->AutoIncrement is used to generate the sequence of values automatically.
+
+
+
+12]Explain indetail about SQL datatypes ?
+
+    ->SQL datatypes defines the kind of value that a column can store in a database table
+    ->In SQL thier are different types of datatypes:-
+
+        1]Numeric Type
+            ->int : is used to store the whole numbers
+            ->tinyint : is used to store the small numbers from the range 0-255
+            ->decimal : is used to store the exact precision value
+            ->float : is used to store the floating point values
+
+        
+        2]String type
+            ->char : is used to store the fixed length String
+            ->varchar : is used to store the variable length String
+            ->text : is used to store large blocks of text
+
+
+        3]DateTime type
+            ->Date : is used to store data values
+            ->Time : is used to store time values
+            ->DateTime : is used to store DateTime values
+
+        
+        4]Boolean 
+            ->Boolean is used to store true/false values
+            ->If boolean value is true then it will store it as 1 in the database
+            ->If boolean value is false then it will store it as 0 in the database
+
+
+Difference between char and varchar ?
+    ->for an example : name char(10) : always occupies 10 bytes
+                                        if i store "hemanth" then it will occupies all 10 bytes
+                                        char is faster and waste space
+
+    ->for an example : varchar(10) : it occupies only what you store
+                                        if i store "hemanth" then it will occupies only 7 bytes
+                                        varchar is slower and saves space
+
+
+
+13]Explain where in sql ?
+
+->In SQL where is a clause
+->In SQL where clause is used to filter the records,it extract only those records that fulfills the specific conditions
+->where clause is used with different operators like IN,NOTIN,BETWEEN,NOTBETWEEN,LIKE,NOTLIKE and relational operators(>,<,>=,<=,==,!=)
+
+
+14]Explain in detail about between and not between operators in sql ?
+
+->The between and not between are the logical operators in sql ,used to filter data with in a specified range
+->The between operator selects the values with in a specified range,here the range is inclusive meaning start values and end values are included
+->The not between operator does exact opposite to between operator ,it selects the values that outfalls within the specified range.
+
+
+15]Explain IN and NOTIN in sql ?
+
+->IN operator allows you to specify multiple values in where clause
+->NOTIN operator return rows where the column value not match with any value in the list.
+
+
+16]Explain LIKE operator and NOT LIKE operator ?
+
+->In SQL Like operator and NOT Like Operator are used for pattern matching,where = searches for exact match,LIKE operator allows you to search data like what you are
+searching for
+->The NOTLIKE does exact opposite to LIKE operator
+
+
+
+17]Explain indetail about order by in sql ?
+
+->The orderby keyword in sql is used to sort the resultset in ascending/descending order
+->The orderby keyword is used to sort the records in ascending order by default,to sort the records in descending order we use desc keyword.
+
+
+18]Explain in detail about groupby clause in sql ?
+
+->The groupby clause organizes  rows that have same values into summary rows,it is almost used with aggregate functions like sum,count,max,min and avg
+->If i select a column without aggregate function then it must be in groupby
+
+
+
+19]Explain indetail about having in sql ?
+
+->having is a clause
+->having is a filter for groups,it is introduced in sql because we cannot use where clause with aggregate functions
+->where filter rows before grouping
+->having filter groups after aggregation
+
+
+20]Explain in detail about aggregate functions ?
+
+->Aggregate functions performs calculations on multiple rows and return single value
+->sum : adds all values of a column
+->count : returns total no of rows ,count(column) skips null rows
+->max : returns maximum value of a column
+->min : returns minimim value of a column
+->avg : calculates avg of a column
+
+
+
+21]SQL Query Execution Order ?
+
+    ->FROM -> WHERE --> GROUPBY -->HAVING -->SELECT -->ORDERBY -->LIMIT
+
