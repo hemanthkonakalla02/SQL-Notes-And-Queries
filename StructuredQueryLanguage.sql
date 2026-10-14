@@ -203,3 +203,96 @@ alter table employ modify address varchar(55);
 -- Removing the foreign key for employ table
 
 alter table employ drop constraint fk;
+
+
+
+-- autoincrement
+
+use sqlcomplete;
+create table student(sid int primary key auto_increment,sname varchar(45),address varchar(45));
+
+select * from student;
+
+insert into student(sname,address) values('hemanthkumarkonakalla','koyyalagudem');
+insert into student(sname,address) values('anandkumarkonakalla','hyderabad');
+insert into student(sname,address) values('priyankakonakalla','hyderabad');
+
+
+-- datatypes
+
+create table studentdetails(sid int,age tinyint,fee decimal,marks float,name varchar(45),collegeName char(45),remarks text,doj datetime,AttendedExam boolean);
+
+select * from studentdetails;
+
+insert into studentdetails values(1,29,35000.78,78.5,'hemanthkumarkonakalla','Aditya University',"good at studies",'2018-06-17 09:34:54',true);
+
+-- where 
+
+select * from emp where ename='hemanthkumarkonakalla';
+
+
+-- between and not between
+
+select * from emp;
+
+select * from emp where salary between 50000 and 100000;
+
+
+select * from emp where salary not between 50000 and 100000;
+
+
+-- IN and NOTIN
+
+select * from emp where salary in(55000,95000,60000);
+
+select * from emp where salary not in(55000,95000,60000);
+
+
+-- LIKE And NOTLIKE
+
+select * from emp;
+
+select * from emp where ename like 'h%';
+select * from emp where ename like '%d';
+
+select * from emp where ename like 'a_a_d';
+
+select * from emp where ename not like 'h%';
+
+
+-- ORDER BY
+
+select * from emp;
+
+select * from emp order by salary;
+
+select * from emp order by salary desc;
+
+
+
+-- GROUP BY
+select * from employ;
+
+select dept_id,count(ename) from employ group by dept_id;
+
+
+-- HAVING
+
+select dept_id,count(ename) from employ group by dept_id having dept_id=101;
+
+
+-- aggregate functions
+
+select * from emp;
+
+select sum(salary) from emp;
+
+select max(salary) from emp;
+
+select min(salary) from emp;
+
+select avg(salary) from emp;
+
+select count(*) from emp;
+
+select count(dept) from emp;
