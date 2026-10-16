@@ -296,3 +296,173 @@ select avg(salary) from emp;
 select count(*) from emp;
 
 select count(dept) from emp;
+
+
+
+-- SQL Joins
+use sqlcomplete;
+
+-- 1]Inner Join
+
+select * from employ;
+select * from dept;
+
+select e.ename,e.email,e.age,e.address,e.dept_id,d.dept_name from employ as e join dept as d on e.dept_id=d.dept_id;
+
+-- 2]Left join
+
+select e.ename,e.email,e.age,e.address,e.dept_id,d.dept_name from employ as e left join dept as d on e.dept_id=d.dept_id;
+
+-- 3]Right join
+
+select e.ename,e.email,e.age,e.dept_id,d.dept_name from employ as e right join dept as d on e.dept_id=d.dept_id;
+
+
+-- full outer join
+
+select e.ename,e.email,e.age,e.address,e.dept_id,d.dept_name from employ as e left join dept as d on e.dept_id=d.dept_id
+
+union
+
+select e.ename,e.email,e.age,e.address,e.dept_id,d.dept_name from employ as e right join dept as d on e.dept_id=d.dept_id;
+
+
+-- cross join
+
+create table sizes(size varchar(10));
+
+create table clothes(id int,brandName varchar(45));
+
+insert into sizes values('S');
+insert into sizes values('M');
+insert into sizes values('L');
+insert into sizes values('XL');
+insert into sizes values('XXL');
+insert into sizes values('XXXL');
+
+select * from sizes;
+select * from clothes;
+
+insert into clothes values(1,'PUMA');
+insert into clothes values(2,'NIKE');
+insert into clothes values(3,'ADDIDAS');
+insert into clothes values(4,'Vanhussein');
+insert into clothes values(5,'Allen Solley');
+
+
+select * from clothes,sizes;
+
+
+-- self join
+
+create table categories(category_id int,category_name varchar(45),parent_category_id int);
+
+select * from categories;
+
+insert into categories(category_id,category_name) values(1,'Electronics');
+insert into categories(category_id,category_name) values(2,'Furniture');
+insert into categories(category_id,category_name) values(3,'Laptops');
+
+
+insert into categories values(4,'AC',1);
+insert into categories values(5,'TV',1);
+
+insert into categories values(6,'KingSizeBed',2);
+insert into categories values(7,'Sofa',2);
+
+insert into categories values(8,'Dell',3);
+insert into categories values(9,'Asus',3);
+
+
+
+select c1.category_name as parent_category_name,c2.category_name as child_category_name  from categories as c1
+inner join categories as c2 on c1.category_id=c2.parent_category_id;
+
+
+-- Natural join
+
+
+select * from employ;
+select * from dept;
+
+select e1.ename,e1.email,e1.age,e1.address,e1.dept_id from employ as e1 natural join dept as d where d.dept_id=e1.dept_id;
+
+
+-- alias
+
+select * from employ as e;
+
+select ename as n from employ;
+
+
+
+-- stored procedure
+
+DELIMITER $$
+create procedure getAllEmployees()
+BEGIN
+
+select * from employ;
+
+END $$
+DELIMITER ;
+
+
+show procedure status;
+
+call getAllEmployees;
+
+
+drop procedure if exists getAllEmployees;
+
+DELIMITER $$
+
+create procedure getEmployeesBasedOnIdAndEmail(IN id int,IN emailId varchar(45))
+
+BEGIN
+
+select * from employ where eid=id and email=emailId;
+
+END $$
+
+DELIMITER ; 
+
+
+call getEmployeesBasedOnIdAndEmail(1,'hemanth@gmail.com');
+
+
+
+-- Clustered index
+
+create table employs(eid int primary key,ename varchar(45),salary float,dept varchar(45));
+
+select * from employs;
+
+insert into employs values(4,'hanvika',25000,'Cloud');
+insert into employs values(7,'sekhar',60000,'Architect');
+insert into employs values(1,'hemanth',95000,'SoftwareEngineer');
+insert into employs values(6,'chinni',25000,'Cloud&DevOps');
+insert into employs values(3,'priyanka',45000,'Testing');
+insert into employs values(5,'anand',105000,'Analyst');
+insert into employs values(2,'prasad',25000,'Autocad');
+
+drop table employs;
+
+-- Non Clustered index
+
+
+create table employs(eid int,ename varchar(45),salary float,dept varchar(45));
+
+select * from employs;
+
+
+create index idx on employs(ename);
+
+select ename from employs;
+
+show index from employs;
+
+drop index idx on employs;
+
+
+
