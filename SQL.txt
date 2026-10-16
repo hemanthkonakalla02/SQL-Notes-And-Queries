@@ -267,3 +267,99 @@ searching for
 
     ->FROM -> WHERE --> GROUPBY -->HAVING -->SELECT -->ORDERBY -->LIMIT
 
+
+22]Explain indetail about SQL Joins ?
+
+    ->SQL Joins is used to combine data from multiple tables
+    ->In SQL thier are different types of joins:-
+        
+        1]Inner join
+            ->Inner join will returns only matching rows from both the tables
+        
+        2]left join
+            ->Left join will return all the records from the left table and only matching records from the right table
+            ->If thier is no match then it will show NULL on right table columns
+
+        3]right join
+            ->Right join will return all the records from the right table,and only matching records from left table
+            ->If thier is no match then it will show null on left table columns
+
+        4]full outer join
+            ->full outer join will return all the records from table
+            ->MySQL does not support full outer join,so we use left join + right join along with union or unionall
+            ->union will shows only unique records
+            ->unionall will shows all the records
+        
+        5]cross join
+            ->cross join returns the cartisian product of 2 table
+            ->Every row from table 1 will join will all rows from table 2
+
+        
+        6]Self join
+            ->A table will join with itself
+
+
+        7]Natural join
+            ->Natural join automatically joins tables based on common column name and datatype
+            ->It is not recommended because if thier is a common column then it will give the output as inner join,if thier is no common column then it will give
+            output as cross join
+
+
+Difference between JOIN and UNION ?
+
+    ->JOIN : combines columns from multiple tables horizontally
+    ->UNION : combines rows from multiple tables veritically
+
+
+Difference between UNION and UNIONALL ?
+
+    ->UNION : combines result,removes duplicates
+    ->UNIONALL : combines result,keep all duplicates
+    UNIONALL is faster than UNION
+
+
+23]What is alias ?
+
+    ->Alias in sql is used to give temporary names to tables or columns that improves readability and simplfy the complex queries.
+
+
+24]Explain what is stored procedures in sql ?
+
+    ->A stored procedure is a pre-compiled set of sql statements stored in the database,that is executed when it is needed
+    ->Stored procedures improves performance,re-usability,security and maintainability
+
+
+25]Explain indetail about index ?
+
+    ->An index is a special look up table,which is used to retrieve the data from the database quickly,it is like searching content in a book by checking the 
+    index package
+    ->Thier are 2 types of index:-
+        i)Clustered index
+        ii)Non clustered index
+    
+
+    ->Clustered index defines the order,in which the data is physically stored in the table,primary key on a column automatically creates the clustered index.
+    ->In a table we can create only one clustered index
+    ->Clustered index does not provide seperate index storage
+    ->Clsutered index is faster for range queries because the data is sorted
+
+
+    ->Non clustered index does not sort the data in table,Non clustered structure is stored at one place where the table at another place
+    ->In a table we can create any number of non clustered index
+    ->Non clustered index provides seperate index storage
+    ->Non clustered index is high in performance
+
+
+Advantages of index:
+    ->We use index when column is frequently used with where 
+    ->Column is used for joins
+    ->Column is used with orderby
+
+    ->We dont use index when table has very few rows
+    ->Column is having too many null values
+    ->Column is frequently updated.
+
+Disadvantages of index:
+    ->Index slows down INSERT,UPDATE,DELETE because the index also should get updated
+    ->Index takes extra storage space
+
