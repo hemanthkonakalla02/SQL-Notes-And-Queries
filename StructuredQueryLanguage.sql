@@ -464,5 +464,24 @@ show index from employs;
 
 drop index idx on employs;
 
-
+-- view
+ 
+ select * from emp;
+ 
+ -- Creating View
+ create view emp_details as select eid,ename,dept from emp where salary>=50000;
+ 
+ -- Select view
+ select * from emp_details;
+ 
+ -- Update view
+ 
+ create or replace view emp_details as select eid,ename,dept from emp where salary>=45000;
+ 
+ select * from emp_details;
+ 
+ 
+ -- Drop 
+ 
+ drop view emp_details;
 
