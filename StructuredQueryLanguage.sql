@@ -485,3 +485,153 @@ drop index idx on employs;
  
  drop view emp_details;
 
+
+
+ -- single row subquery
+ 
+		-- employee with max salary
+ 
+ select * from employ where salary=(select max(salary)from employ);
+ 
+ -- multiple row query
+	
+		-- employees in specific department
+	
+    select * from employ where dept_id in(select dept_id from dept);
+    
+		-- 2nd highest salary
+        
+	select max(salary) as 2nd_highest_salary from employ where salary <(select max(salary) from employ);
+    
+    
+-- Correlated subquery example
+
+-- employees earning more than their department average
+
+select e1.ename,e1.email,e1.address,e1.salary from employ as e1 where salary >(select avg(salary) from employ as e2 where e1.dept_id=e2.dept_id);
+ 
+select * from employ;
+select * from dept;
+
+
+
+-- frequently asked sql questions in interview
+
+-- 1]Find the 2nd Highest Salary
+
+select max(salary) as 2nd_highest_salary from employ where salary<(select max(salary) from employ);
+
+
+-- alternative
+
+select * from employ order by salary desc limit 1 offset 1;
+
+
+
+-- 2]Find Employees Who Earn More Than the Average Salary 
+
+select * from employ where salary>(select avg(salary) from employ);
+
+
+-- 3]Find Department-Wise Highest Salary
+
+ select max(salary) as dept_wise_highest_salary,dept_id from employ group by dept_id; 
+ 
+ 
+ -- 4] Find Employees Without Any Department Assigned 
+ 
+select * from employ where dept_id is null;
+
+
+-- 5]Display Total Salary Paid by Each Department 
+
+select sum(salary) as total_sal_paid_by_dept,dept_id from employ group by dept_id;
+
+-- 6]Find Departments Having Average Salary > 50,000 
+
+select dept_id as departments,avg(salary) from employ group by dept_id having avg(salary)>50000;
+
+
+-- 7]Find Duplicate Employee Names 
+
+ select count(ename) as duplicate_names_count,ename from employ group by ename having count(*)>1;
+ 
+ 
+ -- 8] Delete Duplicate Records (Keep One Copy)  
+
+ 
+ delete e1 from employ as e1 join employ as e2 where e1.ename=e2.ename and e1.eid>e2.eid;
+ 
+ 
+ -- 9]Find Employees Whose Names Start with ‘a’
+ 
+ select * from employ where ename like 'a%';
+ 
+ 
+ -- 10]Find Employees Whose Names End with ‘i’
+ 
+ select * from employ where ename like '%i';
+ 
+ 
+ -- 11]Find Employees Whose Names Contain ‘man’
+ 
+ select * from employ where ename like '%man%';
+ 
+ 
+ -- 12] Display Employees Who Work in ‘CloudEngineering’ Department 
+ 
+ select * from employ as e1 inner join dept as d1 on e1.dept_id=d1.dept_id where dept_name='CloudEngineering';
+ 
+ 
+ -- 13]Find Highest Paid Employee in the Company 
+ 
+ select * from employ where salary=(select max(salary) from employ);
+ 
+ -- 14]Count Number of Employees in Each Department 
+ 
+ select count(ename) as no_of_emp_in_each_dept, dept_id from employ group by dept_id;
+ 
+ -- 15]Display Department Names Having No Employees
+ 
+select dept_name from dept as d1 left join employ as e1 on e1.dept_id=d1.dept_id where e1.dept_id is null;
+
+
+-- 16]find 3rd highest salary
+
+select * from employ;
+select max(salary) as 3rd_highest_salary from employ where salary<(select max(salary) from employ where salary<(select max(salary) from employ));
+
+-- 17] find 2nd lowest salary
+
+select min(salary) as 2nd_lowest_salary from employ where salary>(select min(salary) from employ);
+
+
+-- NULL and NOTNULL
+
+select * from employ where dept_id is null;
+
+select * from employ where dept_id is not null;
+
+-- Relational Operators
+select * from employ where salary >50000;
+
+select * from employ where salary <50000;
+
+select * from employ where salary>=55000;
+
+select * from employ where salary<=45000;
+
+select * from employ where salary!=45000;
+
+select * from employ where salary=65000;
+
+-- Logical Operators
+
+select * from employ where salary=95000 and eid=1;
+
+select * from employ  where salary=1500 or eid=2;
+
+
+select * from employ;
+
+select eid,ename,coalesce(dept_id,00) from employ;
