@@ -506,3 +506,12 @@ Durability
 3]Stored procedure supports DML                         3]In funtions no DML is allowed
 4]Stored procedure supports transaction                 4]In function their is no transaction
 5]Stored procedure supports OUT parameter               5]In function thier is no OUT parameter
+
+
+
+31]Explain what is normalization ?
+
+    ->Normalization in SQL is the process of organizing the database structure to reduce redundancy,ensure data intergrity and make the database more efficient to
+    maintain
+    ->The different forms in SQL inlcudes 1NF(First Normal Form),2NF(Second Normal Form),3NF(Third Normal Form) each focusing on reducing redundancy and organizing
+    data logically
