@@ -631,6 +631,9 @@ select * from employ where salary=95000 and eid=1;
 
 select * from employ  where salary=1500 or eid=2;
 
+select * from employ;
+
+select eid,ename,coalesce(dept_id,00) from employ;
 
 -- STRING FUNCTIONS
 
@@ -665,6 +668,4 @@ select round(75.4);
 
 
 
-select * from employ;
 
-select eid,ename,coalesce(dept_id,00) from employ;
