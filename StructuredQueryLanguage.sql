@@ -632,6 +632,39 @@ select * from employ where salary=95000 and eid=1;
 select * from employ  where salary=1500 or eid=2;
 
 
+-- STRING FUNCTIONS
+
+select concat(ename,email) from employ;
+
+select upper(ename) from employ;
+
+select lower(ename) from employ;
+
+select length(ename) from employ;
+
+
+-- DATE FUNCTIONS
+
+-- display current date and time
+select now();
+
+-- displays only date
+
+select curdate();
+
+-- MATH FUNCTIONS
+
+select * from employ;
+
+select ceil(76.1);
+
+select floor(79.9);
+
+select round(75.4);
+
+
+
+
 select * from employ;
 
 select eid,ename,coalesce(dept_id,00) from employ;
