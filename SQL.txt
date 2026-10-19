@@ -496,3 +496,13 @@ Durability
         1]Single row subquery : returns single row
         2]Multi row subquery : returns multiple rows
         3]co-related subquery : inner query depends on outer query executes row by row
+
+
+
+30]Difference between stored procedure vs functions ?
+
+1]Stored procedure called with call                     1]function used in select
+2]Stored procedure return 0 or multiple values          2]function must return one value
+3]Stored procedure supports DML                         3]In funtions no DML is allowed
+4]Stored procedure supports transaction                 4]In function their is no transaction
+5]Stored procedure supports OUT parameter               5]In function thier is no OUT parameter
