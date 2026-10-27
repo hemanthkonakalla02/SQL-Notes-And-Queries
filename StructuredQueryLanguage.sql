@@ -605,6 +605,9 @@ select max(salary) as 3rd_highest_salary from employ where salary<(select max(sa
 
 select min(salary) as 2nd_lowest_salary from employ where salary>(select min(salary) from employ);
 
+-- 18] find employees whose earns more salary than their manager
+select e1.ename,e1.salary from emps as e1 inner join manager as m on e1.manager_id=m.m_id where e1.salary>m.salary;
+
 
 -- NULL and NOTNULL
 
