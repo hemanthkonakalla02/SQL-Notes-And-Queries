@@ -544,4 +544,6 @@ v)use LIKE operator wisely : "%HEM%"  forces a full table scan which is time con
 
 vi)Avoid multiple joining
 
-Whenever a query takes too long in production, I prefix it with EXPLAIN in MySQL. I immediately look at the type and key columns. If type shows ALL and key is NULL, I know it's performing a full table scan. I then create a B-Tree index on the filtering columns and re-run EXPLAIN to ensure the query is optimized and the row count drops.
+Whenever a query takes too long in production, I prefix it with EXPLAIN in MySQL. 
+I immediately look at the type and key columns. If type shows ALL and key is NULL, 
+I know it's performing a full table scan. I then create a B-Tree index on the filtering columns and re-run EXPLAIN to ensure the query is optimized and the row count drops.
