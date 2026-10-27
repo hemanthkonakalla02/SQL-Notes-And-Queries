@@ -513,7 +513,7 @@ Durability
 
     ->Normalization in SQL is the process of organizing the database structure to reduce redundancy,ensure data intergrity and make the database more efficient to
     maintain
-    ->The different forms in SQL inlcudes 1NF(First Normal Form),2NF(Second Normal Form),3NF(Third Normal Form) each focusing on reducing redundancy and organizing
+    ->The different normal forms in SQL includes 1NF(First Normal Form),2NF(Second Normal Form),3NF(Third Normal Form) each focusing on reducing redundancy and organizing
     data logically
 
 
