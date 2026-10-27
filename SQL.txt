@@ -515,3 +515,33 @@ Durability
     maintain
     ->The different forms in SQL inlcudes 1NF(First Normal Form),2NF(Second Normal Form),3NF(Third Normal Form) each focusing on reducing redundancy and organizing
     data logically
+
+
+
+32]Explain indetail about Query Optimization Techniques ?
+
+    ->Query Optimization is a process of writing the SQL query in a efficient way to increase the database performance
+    ->For an example: In Development Environment ,if i write any complex SQL query it will not show any performance issue because in development environment
+will have less data,but in production environment thier will be a millions of records so performance issue comes into the picture which means SQL query will
+take some time to execute,so to overcome this problem we should use query optimization techniques
+->Thier are different ways to optimize the Query
+    i)Using index
+        ->An index is a special look up table which is used to retrieve the data from the database quickly ,it is like searching content in a book by checking
+the index page
+        ->Index uses BTree data structure to retrive the data faster and increase the performance
+
+ii)Replace UNION with UNIONALL
+        ->Because UNION will remove the duplicate records which is time consuming and not efficient
+        ->UNION ALL  shows all the records which takes less time and it is more efficient
+
+iii)Use SELECT instead of SELECT * because it will fetch all the columns from table causing unnecessary data transfer and slows down the peformance
+if we use SELECT COLUMNNAME it is more efficient and consumes less time
+
+iv)Minimum use of DISTINCT keyword : it find and filters out duplicates
+
+v)use LIKE operator wisely : "%HEM%"  forces a full table scan which is time consuming and not efficient
+                            :HEM% this is efficient and less time consuming
+
+vi)Avoid multiple joining
+
+Whenever a query takes too long in production, I prefix it with EXPLAIN in MySQL. I immediately look at the type and key columns. If type shows ALL and key is NULL, I know it's performing a full table scan. I then create a B-Tree index on the filtering columns and re-run EXPLAIN to ensure the query is optimized and the row count drops.
