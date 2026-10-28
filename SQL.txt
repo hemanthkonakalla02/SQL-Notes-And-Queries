@@ -531,18 +531,15 @@ the index page
         ->Index uses BTree data structure to retrive the data faster and increase the performance
 
 ii)Replace UNION with UNIONALL
-        ->Because UNION will remove the duplicate records which is time consuming and not efficient
-        ->UNION ALL  shows all the records which takes less time and it is more efficient
+        ->Because UNION will forces the database to sort the data and removes duplicates which is time consuming
+        ->If i know the data is already unique or duplicates are acceptable ,i uses UNIONALL becauce it just appends the data instantly
 
-iii)Use SELECT instead of SELECT * because it will fetch all the columns from table causing unnecessary data transfer and slows down the peformance
-if we use SELECT COLUMNNAME it is more efficient and consumes less time
+iii)Avoding leading wildcards in Like
+    ->A leading percentage sign forces full table scan which breaks the index,using 'h%' allows the BTree index to work perfectly
 
-iv)Minimum use of DISTINCT keyword : it find and filters out duplicates
-
-v)use LIKE operator wisely : "%HEM%"  forces a full table scan which is time consuming and not efficient
-                            :HEM% this is efficient and less time consuming
-
-vi)Avoid multiple joining
+iv)use specific columns instead of select *
+    ->Because usually select * pulls unnecessary columns which waste the Disk IO and network bandwidth
+so i select only the exact columns required by the application
 
 Whenever a query takes too long in production, I prefix it with EXPLAIN in MySQL. 
 and I immediately look at the type and key columns. If type shows ALL and key is NULL, 
