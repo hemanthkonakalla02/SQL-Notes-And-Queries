@@ -350,20 +350,20 @@ Difference between UNION and UNIONALL ?
     ->Non clustered index is high in performance
 
 
-Advantages of index:
+    Advantages of index:
 
-    ->We use index when column is frequently used with where 
-    ->Column is used for joins
-    ->Column is used with orderby
+        ->We use index when column is frequently used with where 
+        ->Column is used for joins
+        ->Column is used with orderby
 
-    ->We dont use index when table has very few rows
-    ->Column is having too many null values
-    ->Column is frequently updated.
+        ->We dont use index when table has very few rows
+        ->Column is having too many null values
+        ->Column is frequently updated.
 
-Disadvantages of index:
+    Disadvantages of index:
 
-    ->Index slows down INSERT,UPDATE,DELETE because the index also should get updated
-    ->Index takes extra storage space
+        ->Index slows down INSERT,UPDATE,DELETE because the index also should get updated
+        ->Index takes extra storage space
 
 
 26]Difference between DELETE,DROP and TRUNCATE ?
@@ -376,14 +376,14 @@ Disadvantages of index:
     DROP and TRUNCATE is a DDL command
 
 
-Q: "Can we rollback TRUNCATE?"
+    Q: "Can we rollback TRUNCATE?"
 
-    ->No Truncate is a DDL command it cannot be rolled back,But DELETE is DML command it can be rolled back by using rollback
+        ->No Truncate is a DDL command it cannot be rolled back,But DELETE is DML command it can be rolled back by using rollback
 
 
-Q: "What happens to auto increment after TRUNCATE?"
+    Q: "What happens to auto increment after TRUNCATE?"
 
-    ->TRUNCATE resets the AutoIncrement back to 1,but DELETE does not reset it
+        ->TRUNCATE resets the AutoIncrement back to 1,but DELETE does not reset it
 
 
 Q: "Which is faster — DELETE or TRUNCATE?"
@@ -402,7 +402,7 @@ Q: "Which is faster — DELETE or TRUNCATE?"
         ii)update view
         iii)delete view
 
-->What is the use of views ?
+    ->What is the use of views ?
 
         ->We use views for
             i)security: hides sensitive columns from user
@@ -449,51 +449,51 @@ Q: "Which is faster — DELETE or TRUNCATE?"
     ->D : Durability
 
 
-Atomicity
+    Atomicity
     
-    ->A transaction must either complete fully or fails completely
-    ->If one step fails then the entire transaction is rolled back
+        ->A transaction must either complete fully or fails completely
+        ->If one step fails then the entire transaction is rolled back
 
-    for an example: If i want to transfer 1000 rupess from Account A to Account B
-    Then 1000 rupees will be deducted from Account A and credited into Account B
-    But if system crashed before crediting into Account B then database rollback the transaction
+        for an example: If i want to transfer 1000 rupess from Account A to Account B
+        Then 1000 rupees will be deducted from Account A and credited into Account B
+        But if system crashed before crediting into Account B then database rollback the transaction
 
-    Partial update is not allowed
-
-
-Consistency
-
-    ->After a commited transaction,the database must remains in a valid state
-    ->It must satisfies all SQL constraints 
-        i)primary key
-        ii)foreign key
-        iii)check
-        iv)unique
-        v)notnull
-
-    for an example:In a table thier is a column called as age which is having the check constraint like age>=18
-    If use tries to enter the age as 15 then database will rejects the invalid data.
+        Partial update is not allowed
 
 
+    Consistency
 
-Isolation   
+        ->After a commited transaction,the database must remains in a valid state
+        ->It must satisfies all SQL constraints 
+            i)primary key
+            ii)foreign key
+            iii)check
+            iv)unique
+            v)notnull
 
-    ->Multiple transactions should not interfere with each other intermediate state
-    for an example:If user is updating the salary
-    User B should not see the uncommited data
-
-    In Isolation thier are 4 levels:
-        1]READ uncommited : read only uncommited data
-        2]READ commited : can rad ony commited data
-        3]REPEATED READ : same query returns same result with in a transaction
-        4]Serializable : Highest Isolation
-            Transaction run one by one
+        for an example:In a table thier is a column called as age which is having the check constraint like age>=18
+        If use tries to enter the age as 15 then database will rejects the invalid data.
 
 
-Durability
 
-    ->Once a transaction is commited ,it remains permantely saved even if system crashes
-    for an example:After a sucessfull transaction the data is safe even the power fails
+    Isolation   
+
+        ->Multiple transactions should not interfere with each other intermediate state
+        for an example:If user is updating the salary
+        User B should not see the uncommited data
+    
+        In Isolation thier are 4 levels:
+            1]READ uncommited : read only uncommited data
+            2]READ commited : can rad ony commited data
+            3]REPEATED READ : same query returns same result with in a transaction
+            4]Serializable : Highest Isolation
+                Transaction run one by one
+
+
+    Durability
+
+        ->Once a transaction is commited ,it remains permantely saved even if system crashes
+        for an example:After a sucessfull transaction the data is safe even the power fails
 
 
 29]Explain indetail about subqueries ?
