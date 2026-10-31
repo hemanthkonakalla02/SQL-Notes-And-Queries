@@ -386,9 +386,9 @@ Difference between UNION and UNIONALL ?
         ->TRUNCATE resets the AutoIncrement back to 1,but DELETE does not reset it
 
 
-Q: "Which is faster — DELETE or TRUNCATE?"
+    Q: "Which is faster — DELETE or TRUNCATE?"
 
-    ->TRUNCATE is faster because it removes all the rows in one step without logging individual rows deletion
+        ->TRUNCATE is faster because it removes all the rows in one step without logging individual rows deletion
 
 
 
