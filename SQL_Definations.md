@@ -206,61 +206,60 @@ Difference between char and varchar ?
 
 13]Explain where in sql ?
 
-->In SQL where is a clause
-->In SQL where clause is used to filter the records,it extract only those records that fulfills the specific conditions
-->where clause is used with different operators like IN,NOTIN,BETWEEN,NOTBETWEEN,LIKE,NOTLIKE and relational operators(>,<,>=,<=,==,!=)
+    ->In SQL where is a clause
+    ->In SQL where clause is used to filter the records,it extract only those records that fulfills the specific conditions
+    ->where clause is used with different operators like IN,NOTIN,BETWEEN,NOTBETWEEN,LIKE,NOTLIKE and relational operators(>,<,>=,<=,==,!=)
 
 
 14]Explain in detail about between and not between operators in sql ?
 
-->The between and not between are the logical operators in sql ,used to filter data with in a specified range
-->The between operator selects the values with in a specified range,here the range is inclusive meaning start values and end values are included
-->The not between operator does exact opposite to between operator ,it selects the values that outfalls within the specified range.
+    ->The between and not between are the logical operators in sql ,used to filter data with in a specified range
+    ->The between operator selects the values with in a specified range,here the range is inclusive meaning start values and end values are included
+    ->The not between operator does exact opposite to between operator ,it selects the values that outfalls within the specified range.
 
 
 15]Explain IN and NOTIN in sql ?
 
-->IN operator allows you to specify multiple values in where clause
-->NOTIN operator return rows where the column value not match with any value in the list.
+    ->IN operator allows you to specify multiple values in where clause
+    ->NOTIN operator return rows where the column value not match with any value in the list.
 
 
 16]Explain LIKE operator and NOT LIKE operator ?
 
-->In SQL Like operator and NOT Like Operator are used for pattern matching,where = searches for exact match,LIKE operator allows you to search data like what you are
-searching for
-->The NOTLIKE does exact opposite to LIKE operator
+    ->In SQL Like operator and NOT Like Operator are used for pattern matching,where = searches for exact match,LIKE operator allows you to search data like what         you are searching for
+    ->The NOTLIKE does exact opposite to LIKE operator
 
 
 
 17]Explain indetail about order by in sql ?
 
-->The orderby keyword in sql is used to sort the resultset in ascending/descending order
-->The orderby keyword is used to sort the records in ascending order by default,to sort the records in descending order we use desc keyword.
+    ->The orderby keyword in sql is used to sort the resultset in ascending/descending order
+    ->The orderby keyword is used to sort the records in ascending order by default,to sort the records in descending order we use desc keyword.
 
 
 18]Explain in detail about groupby clause in sql ?
 
-->The groupby clause organizes  rows that have same values into summary rows,it is almost used with aggregate functions like sum,count,max,min and avg
-->If i select a column without aggregate function then it must be in groupby
+    ->The groupby clause organizes  rows that have same values into summary rows,it is almost used with aggregate functions like sum,count,max,min and avg
+    ->If i select a column without aggregate function then it must be in groupby
 
 
 
 19]Explain indetail about having in sql ?
 
-->having is a clause
-->having is a filter for groups,it is introduced in sql because we cannot use where clause with aggregate functions
-->where filter rows before grouping
-->having filter groups after aggregation
+    ->having is a clause
+    ->having is a filter for groups,it is introduced in sql because we cannot use where clause with aggregate functions
+    ->where filter rows before grouping
+    ->having filter groups after aggregation
 
 
 20]Explain in detail about aggregate functions ?
 
-->Aggregate functions performs calculations on multiple rows and return single value
-->sum : adds all values of a column
-->count : returns total no of rows ,count(column) skips null rows
-->max : returns maximum value of a column
-->min : returns minimim value of a column
-->avg : calculates avg of a column
+    ->Aggregate functions performs calculations on multiple rows and return single value
+        ->sum : adds all values of a column
+        ->count : returns total no of rows ,count(column) skips null rows
+        ->max : returns maximum value of a column
+        ->min : returns minimim value of a column
+        ->avg : calculates avg of a column
 
 
 
@@ -379,60 +378,64 @@ Disadvantages of index:
 
 Q: "Can we rollback TRUNCATE?"
 
-->No Truncate is a DDL command it cannot be rolled back,But DELETE is DML command it can be rolled back by using rollback
+    ->No Truncate is a DDL command it cannot be rolled back,But DELETE is DML command it can be rolled back by using rollback
 
 
 Q: "What happens to auto increment after TRUNCATE?"
 
-->TRUNCATE resets the AutoIncrement back to 1,but DELETE does not reset it
+    ->TRUNCATE resets the AutoIncrement back to 1,but DELETE does not reset it
 
 
 Q: "Which is faster — DELETE or TRUNCATE?"
 
-->TRUNCATE is faster because it removes all the rows in one step without logging individual rows deletion
+    ->TRUNCATE is faster because it removes all the rows in one step without logging individual rows deletion
 
 
 
 27]Explain indetail about views in sql ?
 
-->In sql, a view is a virtual table,based on the resultset of SQL statement
-->A view contains rows and columns just like real table
-->A fields in the view are fields from one or more tables in the database
-->We can create view on
-    i)single table (or) multiple tables
-    ii)update view
-    iii)delete view
+    ->In sql, a view is a virtual table,based on the resultset of SQL statement
+    ->A view contains rows and columns just like real table
+    ->A fields in the view are fields from one or more tables in the database
+    ->We can create view on
+        i)single table (or) multiple tables
+        ii)update view
+        iii)delete view
 
 ->What is the use of views ?
-    ->We use views for
-        i)security: hides sensitive columns from user
+
+        ->We use views for
+            i)security: hides sensitive columns from user
                 for an example:hiding salary column from junior developers
 
-        ii)simplicity: complex joins saved as view
+            ii)simplicity: complex joins saved as view
                     no need to rewrite everytime
 
-        iii)Reusability: create once,use multiple times
+            iii)Reusability: create once,use multiple times
 
 
-Types of views:
-    i)simple view
-    ii)complex view
+    Types of views:
+        i)simple view
+        ii)complex view
 
     ->Simple view based on single table,supports INSERT,UPDATE,DELETE
     ->Complex view based on multiple tables or aggregate functions,it does not support INSERT,UPDATE and DELETE.
 
-View does not store data physically
-Everytime you query a view it runs the underlying SQL query
-View is just a Saved SQL Query.
+    View does not store data physically
+    
+    Everytime you query a view it runs the underlying SQL query
+    View is just a Saved SQL Query.
 
 
-->Difference between view and table ?
-    ->Table : physically stores the data
-    ->View : is a virtual table ,no physical storage ,it is just saved query
+    ->Difference between view and table ?
+    
+        ->Table : physically stores the data
+        ->View : is a virtual table ,no physical storage ,it is just saved query
 
 
-->Can we update a view ?
-    ->Simple view based on single table can be updated,Complex view with joins and aggregate functions cannot be updated.
+    ->Can we update a view ?
+    
+        ->Simple view based on single table can be updated,Complex view with joins and aggregate functions cannot be updated.
 
 
 
@@ -506,11 +509,11 @@ Durability
 
 30]Difference between stored procedure vs functions ?
 
-1]Stored procedure called with call                     1]function used in select
-2]Stored procedure return 0 or multiple values          2]function must return one value
-3]Stored procedure supports DML                         3]In funtions no DML is allowed
-4]Stored procedure supports transaction                 4]In function their is no transaction
-5]Stored procedure supports OUT parameter               5]In function thier is no OUT parameter
+    1]Stored procedure called with call                     1]function used in select
+    2]Stored procedure return 0 or multiple values          2]function must return one value
+    3]Stored procedure supports DML                         3]In funtions no DML is allowed
+    4]Stored procedure supports transaction                 4]In function their is no transaction
+    5]Stored procedure supports OUT parameter               5]In function thier is no OUT parameter
 
 
 
@@ -527,26 +530,28 @@ Durability
 
     ->Query Optimization is a process of writing the SQL query in a efficient way to increase the database performance
     ->For an example: In Development Environment ,if i write any complex SQL query it will not show any performance issue because in development environment
-will have less data,but in production environment thier will be a millions of records so performance issue comes into the picture which means SQL query will
-take some time to execute,so to overcome this problem we should use query optimization techniques
-->Thier are different ways to optimize the Query
+    will have less data,but in production environment thier will be a millions of records so performance issue comes into the picture which means SQL query will
+    take some time to execute,so to overcome this problem we should use query optimization techniques
+    
+    ->Thier are different ways to optimize the Query
+    
     i)Using index
         ->An index is a special look up table which is used to retrieve the data from the database quickly ,it is like searching content in a book by checking
-the index page
+            the index page
         ->Index uses BTree data structure to retrive the data faster and increase the performance
 
-ii)Replace UNION with UNIONALL
+    ii)Replace UNION with UNIONALL
         ->Because UNION will forces the database to sort the data and removes duplicates which is time consuming
         ->If i know the data is already unique or duplicates are acceptable ,i uses UNIONALL becauce it just appends the data instantly
 
-iii)Avoding leading wildcards in Like
+    iii)Avoding leading wildcards in Like
     ->A leading percentage sign forces full table scan which breaks the index,using 'h%' allows the BTree index to work perfectly
 
-iv)use specific columns instead of select *
+    iv)use specific columns instead of select *
     ->Because usually select * pulls unnecessary columns which waste the Disk IO and network bandwidth
-so i select only the exact columns required by the application
+    so i select only the exact columns required by the application
 
-Whenever a query takes too long in production, I prefix it with EXPLAIN in MySQL. 
-and I immediately look at the type and key columns. If type shows ALL and key is NULL, 
-I know it's performing a full table scan. then i create a B-Tree index on the filtering columns and
-re-run EXPLAIN to ensure the query is optimized and the row count drops.
+    Whenever a query takes too long in production, I prefix it with EXPLAIN in MySQL. 
+    and I immediately look at the type and key columns. If type shows ALL and key is NULL, 
+    I know it's performing a full table scan. then i create a B-Tree index on the filtering columns and
+    re-run EXPLAIN to ensure the query is optimized and the row count drops.
